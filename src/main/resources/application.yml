@@ -1,0 +1,49 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+
+hibernate:
+  hbm2ddl:
+    auto: validate
+  dialect: org.hibernate.dialect.Oracle10gDialect
+
+---
+spring:
+  datasource:
+    url: 'jdbc:oracle:thin:@selxoraappd02:1521/SEPAPPD2'
+    username: CUSTOMERMASTER
+    password: '********'
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    show-sql=true
+  config:
+    activate:
+      on-profile: dev
+
+
+---
+spring:
+  datasource:
+    url: 'jdbc:oracle:thin:@selxoraappt02:1521/SEPAPPT2'
+    username: CUSTOMERMASTER
+    password: 'rxhq59nC'
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    show-sql=true
+  config:
+    activate:
+      on-profile: qa
+
+---
+spring:
+  datasource:
+    url: 'jdbc:oracle:thin:@selxappp01:1521/APPPROD.lindex.local'
+    username: CUSTOMERMASTER
+    password: 'rxhq59nC'
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    show-sql=true
+  config:
+    activate:
+      on-profile: prod
