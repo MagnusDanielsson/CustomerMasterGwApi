@@ -20,7 +20,6 @@ public class CustomerController {
     public ResponseEntity<CustomerResponse> getCustomer(@PathVariable Long customerMasterId) {
         CustomerResponse customer = customerService.getCustomer(customerMasterId);
         if(customer==null) {
-            log.error("Customer {] not found in customermaster", customerMasterId);
             return ResponseEntity.notFound().build();
         }
 
